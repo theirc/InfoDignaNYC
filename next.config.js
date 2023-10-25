@@ -4,10 +4,10 @@ const pack = require('./package.json');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  swcMinify: false,
   // Keep in sync with locales configured in /lib/locale.ts.
   i18n: {
-    locales: ['default', 'en-us' /* TODO */],
+    locales: ['default', 'en-us', 'es'],
     defaultLocale: 'default',
     localeDetection: false,
   },
@@ -44,9 +44,9 @@ module.exports = withLess({
       // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
       modifyVars: {
         // TODO: Update theme colors
-        'primary-color': '#51258F',
-        'secondary-color': '#854ECA',
-        'accent-color': '#13C2C2',
+        'primary-color': '#6884FC',
+        'secondary-color': '#92A2E5',
+        'accent-color': '#CC8723',
         'info-color': '@accent-color',
         'alert-info-bg-color': '@accent-color',
         // Override Ant typography.
@@ -65,7 +65,7 @@ module.exports = withLess({
         'header-background-color': '@primary-color',
         'header-text-color': 'white',
         'header-banner-background-color':
-          'linear-gradient(@secondary-color, @primary-color)',
+          'linear-gradient(@primary-color, @secondary-color)',
         'header-banner-text-color': 'white',
         // Set search styles.
         'search-icon-color': 'black',

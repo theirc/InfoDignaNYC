@@ -17,6 +17,7 @@ import ServicePage, {
 import {
   CategoryWithSections,
   ZendeskCategory,
+  getArticle,
   getCategories,
   getCategoriesWithSections,
   getTranslationsFromDynamicContent,
@@ -58,7 +59,6 @@ import {
   populateServicePageStrings,
 } from '../../lib/translations';
 import { getSiteUrl, getZendeskMappedUrl, getZendeskUrl } from '../../lib/url';
-import { getArticle } from '../../lib/zendesk-fake';
 
 interface ServiceProps {
   pageTitle: string;

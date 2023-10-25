@@ -14,7 +14,7 @@ export interface SocialMediaLink {
 export interface SocialMediaLinks {
   facebookLink: SocialMediaLink;
   whatsappLink: SocialMediaLink;
-  messengerLink: SocialMediaLink;
+  emailLink: SocialMediaLink;
 }
 
 /**
@@ -36,7 +36,7 @@ export function getSocialMediaProps(
       image: whatsappImage,
     },
     {
-      ...socialMediaLinks.messengerLink,
+      ...socialMediaLinks.emailLink,
       image: messengerImage,
     },
   ];
