@@ -4,9 +4,7 @@ import { LatLngExpression } from 'leaflet';
 export const SITE_TITLE = 'Info Digna NY';
 
 // TODO: add the default coords for the center of the map
-export const MAP_DEFAULT_COORDS: LatLngExpression = [
-  34.45830721078611, 65.09457416213823,
-];
+export const MAP_DEFAULT_COORDS: LatLngExpression = [40.7128, -74.006];
 
 // Cache statically generated pages for 1 hour. The timeout was chosen
 // arbitrarily. Our website has static, non-urgent resources, so we probably do
@@ -27,19 +25,22 @@ export const USE_CAT_SEC_ART_CONTENT_STRUCTURE = true;
 
 // A mapping from category ID to a Material icon for that category.
 export const CATEGORY_ICON_NAMES: { [key: string]: string } = {
+  PLACEHOLDER: 'home_work', // NOT NECESSARY... NO CAT ICONS
   /* TODO */
-  '123': 'home_work', // Placeholder
 };
 
 // A mapping from section ID to a Material icon for that section.
 export const SECTION_ICON_NAMES: { [key: string]: string } = {
   /* TODO */
-  '123': 'home_work', // Placeholder
+  '14261626108445': 'description', // documents
+  '14261651532957': 'assured_workload', // processes
+  '14522375045277': 'balance', // know your rights
 };
 
 // A list of category IDs that the site should not display.
 export const CATEGORIES_TO_HIDE: number[] = [
-  /* TODO */
+  13944079089181, // About Us Section
+  13944233131293,
 ];
 
 // A map from a locale code to Zendesk locale id used for dynamic content translations.
