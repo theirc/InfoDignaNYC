@@ -14,13 +14,12 @@ import HomePage, {
 import { MenuOverlayItem } from '@ircsignpost/signpost-base/dist/src/menu-overlay';
 import { ServiceMapProps } from '@ircsignpost/signpost-base/dist/src/service-map';
 import {
-  fetchRegions,
-  fetchServices,
-  fetchServicesCategories,
-} from '@ircsignpost/signpost-base/dist/src/service-map-common';
-import {
   CategoryWithSections,
   ZendeskCategory,
+  getArticle,
+  getCategories,
+  getCategoriesWithSections,
+  getTranslationsFromDynamicContent,
 } from '@ircsignpost/signpost-base/dist/src/zendesk';
 import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
@@ -30,7 +29,6 @@ import {
   ABOUT_US_ARTICLE_ID,
   CATEGORIES_TO_HIDE,
   CATEGORY_ICON_NAMES,
-  COUNTRY_ID,
   DIRECTUS_AUTH_TOKEN,
   DIRECTUS_COUNTRY_ID,
   DIRECTUS_INSTANCE,
@@ -62,13 +60,6 @@ import {
   populateSocialMediaLinks,
 } from '../lib/translations';
 import { getZendeskMappedUrl, getZendeskUrl } from '../lib/url';
-// TODO Use real Zendesk API implementation.
-import {
-  getArticle,
-  getCategories,
-  getCategoriesWithSections,
-  getTranslationsFromDynamicContent,
-} from '../lib/zendesk-fake';
 
 interface HomeProps {
   currentLocale: Locale;

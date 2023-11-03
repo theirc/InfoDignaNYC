@@ -13,14 +13,14 @@ export const LOCALES: { [key: string]: Locale } = {
     name: 'English',
     directus: 'en-US',
   },
-  // TODO
+  es: { url: 'es', direction: 'ltr', name: 'Español', directus: 'es-ES' },
 };
 
 export const LOCALE_CODES_TO_CANONICAL_LOCALE_CODES: { [key: string]: string } =
   {
     en: 'en-us',
     'en-us': 'en-us',
-    // TODO
+    es: 'es',
   };
 
 // Returns the effective locale given locale code.

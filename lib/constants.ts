@@ -1,15 +1,10 @@
 import { AlgoliaSearchIndex } from '@ircsignpost/signpost-base/dist/src/search-common';
 import { LatLngExpression } from 'leaflet';
 
-export const SITE_TITLE = 'TODO';
-
-// TODO: add the country id of the instance to fetch the data from the cms for the service-map;
-export const COUNTRY_ID = 123;
+export const SITE_TITLE = 'Info Digna NY';
 
 // TODO: add the default coords for the center of the map
-export const MAP_DEFAULT_COORDS: LatLngExpression = [
-  34.45830721078611, 65.09457416213823,
-];
+export const MAP_DEFAULT_COORDS: LatLngExpression = [40.7128, -74.006];
 
 // Cache statically generated pages for 1 hour. The timeout was chosen
 // arbitrarily. Our website has static, non-urgent resources, so we probably do
@@ -19,30 +14,33 @@ export const REVALIDATION_TIMEOUT_SECONDS: number = 1 * 60 * 60;
 // The "about us" article ID.
 //
 // TODO
-export const ABOUT_US_ARTICLE_ID: number = 123;
+export const ABOUT_US_ARTICLE_ID: number = 14211251914781;
 
 // The information hierary of the website.
 // Set to true for the category -> section -> article hierarchy, similar to that of United for Ukraine.
 // Set to false for the "information" -> category -> article hierarchy, similar to that of Beporsed.
 //
 // TODO
-export const USE_CAT_SEC_ART_CONTENT_STRUCTURE = false;
+export const USE_CAT_SEC_ART_CONTENT_STRUCTURE = true;
 
 // A mapping from category ID to a Material icon for that category.
 export const CATEGORY_ICON_NAMES: { [key: string]: string } = {
+  PLACEHOLDER: 'home_work', // NOT NECESSARY... NO CAT ICONS
   /* TODO */
-  '123': 'home_work', // Placeholder
 };
 
 // A mapping from section ID to a Material icon for that section.
 export const SECTION_ICON_NAMES: { [key: string]: string } = {
   /* TODO */
-  '123': 'home_work', // Placeholder
+  '14261626108445': 'description', // documents
+  '14261651532957': 'assured_workload', // processes
+  '14522375045277': 'balance', // know your rights
 };
 
 // A list of category IDs that the site should not display.
 export const CATEGORIES_TO_HIDE: number[] = [
-  /* TODO */
+  13944079089181, // About Us Section
+  13944233131293,
 ];
 
 // A map from a locale code to Zendesk locale id used for dynamic content translations.
@@ -50,7 +48,7 @@ export const CATEGORIES_TO_HIDE: number[] = [
 // Keep in sync with locales configured in /next.config.js.
 export const DYNAMIC_CONTENT_LOCALES: { [key: string]: number } = {
   'en-us': 1, // English locale id
-  // TODO: Add any other IDs needed
+  es: 2,
 };
 
 export const ZENDESK_AUTH_HEADER = {
@@ -88,5 +86,5 @@ export const SEARCH_RESULTS_PAGE_INDEX: AlgoliaSearchIndex = {
 };
 
 export const DIRECTUS_AUTH_TOKEN = process.env.DIRECTUS_TOKEN ?? '';
-export const DIRECTUS_COUNTRY_ID = 0; // TODO: replace with the country ID from directus
-export const DIRECTUS_INSTANCE = ''; // TODO: add the url from the directus instance you want to fetch data from
+export const DIRECTUS_COUNTRY_ID = 23;
+export const DIRECTUS_INSTANCE = 'https://directus-irc.azurewebsites.net/';

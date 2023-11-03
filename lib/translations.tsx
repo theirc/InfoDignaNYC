@@ -27,6 +27,7 @@ export const COMMON_DYNAMIC_CONTENT_PLACEHOLDERS = [
   'default_menu_home_title',
   'default_information_title',
   'default_menu_about_title',
+  'default_service_map_title',
   // Cookie banner strings.
   'default_cookie_banner',
   'default_accept',
@@ -71,10 +72,7 @@ export const COMMON_DYNAMIC_CONTENT_PLACEHOLDERS = [
 
 export const HOME_PAGE_DYNAMIC_CONTENT_PLACEHOLDERS = [
   // Header banner and social media strings.
-  /*
-   * TODO: create Dynamic content ID for mission statement.
-  '<website_name>_mission_statement',
-   */
+  'info_digna_nyc_mission_statement',
   'default_banner_social_media_title',
   'default_banner_social_media_description',
   'default_banner_facebook_title',
@@ -82,12 +80,7 @@ export const HOME_PAGE_DYNAMIC_CONTENT_PLACEHOLDERS = [
   'default_banner_whatsapp_title',
   // Main body strings.
   'default_information_title',
-  /*
-  //TODO: Replace and create customized dynamic content for information description.
-  '<site_prefix>_information_description',
-  */
-  'default_information_description',
-  'default_service_map_title',
+  'info_digna_nyc_information_description',
   'default_service_map_description',
   'default_service_map_select_region',
   'default_service_map_all_regions',
@@ -99,9 +92,9 @@ export const HOME_PAGE_DYNAMIC_CONTENT_PLACEHOLDERS = [
   'default_service_map_map_tab',
   'default_service_map_list_tab',
   'default_service_map_all_services',
-  'default_service_map_all_regions_option',
-  'default_service_map_all_cities_option',
-  'default_service_map_all_categories_option',
+  'DEFAULT_SERVICE_MAP_ALL_REGIONS_OPTION',
+  'DEFAULT_SERVICE_MAP_ALL_CITIES_OPTION',
+  'DEFAULT_SERVICE_MAP_ALL_CATEGORIES_OPTION',
   'default_service_map_my_location_option',
   'default_all_services_type_option',
   'default_all_providers_option',
@@ -150,10 +143,10 @@ export function populateSocialMediaLinks(dynamicContent: {
       // TODO: create Dynamic content with link to Whatsapp page
       href: '', // dynamicContent['<site_prefix>_whatsapp_link']
     },
-    messengerLink: {
-      title: dynamicContent['default_banner_messenger_title'],
+    emailLink: {
+      title: 'Email',
       // TODO: create Dynamic content with link to Messenger page
-      href: '', // dynamicContent['<site_prefix>_messenger_link']
+      href: 'mailto:support@signpost-nyc.zendesk.com', // dynamicContent['<site_prefix>_messenger_link']
     },
   };
 }
@@ -162,8 +155,7 @@ export function populateHeaderBannerStrings(dynamicContent: {
   [key: string]: string;
 }): HeaderBannerStrings {
   return {
-    // TODO: replace welcomeTitle with website-specific Dynamic content ID.
-    welcomeTitle: 'Welcome text.', // dynamicContent['<site_prefix>_mission_statement'],
+    welcomeTitle: dynamicContent['info_digna_nyc_mission_statement'], // dynamicContent['<site_prefix>_mission_statement'],
     socialMediaTitle: dynamicContent['default_banner_social_media_title'],
     socialMediaDescription:
       dynamicContent['default_banner_social_media_description'],
@@ -211,8 +203,7 @@ export function populateCategoriesSectionStrings(dynamicContent: {
 }): CardsListStrings {
   return {
     title: dynamicContent['default_information_title'],
-    //TODO: Update to the customized '<site_prefix>_information_description',
-    description: dynamicContent['default_information_description'],
+    description: dynamicContent['info_digna_nyc_information_description'],
   };
 }
 
@@ -303,6 +294,7 @@ export function populateMenuOverlayStrings(dynamicContent: {
     home: dynamicContent['default_menu_home_title'],
     information: dynamicContent['default_information_title'],
     about: dynamicContent['default_menu_about_title'],
+    services: dynamicContent['default_service_map_title'],
   };
 }
 

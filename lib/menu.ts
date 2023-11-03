@@ -16,19 +16,22 @@ import {
 export interface CustomMenuOverlayStrings extends MenuOverlayStrings {
   information: string;
   about: string;
+  services: string;
 }
 
-// TODO Update footer items if needed.
+// Excluded category IDs
+const excludedCategoryIds = [13944079089181, 13944233131293];
+
 export function getFooterItems(
   strings: CustomMenuOverlayStrings,
   categories: ZendeskCategory[] | CategoryWithSections[]
 ): MenuOverlayItem[] {
   let items: MenuOverlayItem[] = [];
   items.push({ key: 'home', label: strings.home, href: '/' });
+  // Include other footer items as needed.
   return items;
 }
 
-// TODO Update menu items if needed.
 export function getMenuItems(
   strings: CustomMenuOverlayStrings,
   categories: ZendeskCategory[] | CategoryWithSections[],
@@ -48,6 +51,12 @@ export function getMenuItems(
       href: `/articles/${ABOUT_US_ARTICLE_ID}`,
     });
   }
+  items.push({
+    key: 'services',
+    label: strings.services, // Make sure this string is defined in your strings object
+    href: '/#service-map',
+  });
+  // Include other menu items as needed.
   return items;
 }
 
@@ -56,17 +65,17 @@ function addMenuItemsCategories(
   categories: CategoryWithSections[]
 ) {
   for (const { category, sections } of categories) {
-    items.push({
-      key: category.id.toString(),
-      label: category.name,
-      children: sections.map((section) => {
-        return {
+    if (!excludedCategoryIds.includes(category.id)) {
+      items.push({
+        key: category.id.toString(),
+        label: category.name,
+        children: sections.map((section) => ({
           key: section.id.toString(),
           label: section.name,
           href: '/sections/' + section.id.toString(),
-        };
-      }),
-    });
+        })),
+      });
+    }
   }
 }
 
@@ -75,17 +84,19 @@ function addMenuItemsInformation(
   strings: CustomMenuOverlayStrings,
   categories: ZendeskCategory[]
 ) {
-  if (categories.length > 0) {
+  const filteredCategories = categories.filter(
+    (category) => !excludedCategoryIds.includes(category.id)
+  );
+
+  if (filteredCategories.length > 0) {
     items.push({
       key: 'information',
       label: strings.information,
-      children: categories.map((category) => {
-        return {
-          key: category.id.toString(),
-          label: category.name,
-          href: '/categories/' + category.id.toString(),
-        };
-      }),
+      children: filteredCategories.map((category) => ({
+        key: category.id.toString(),
+        label: category.name,
+        href: '/categories/' + category.id.toString(),
+      })),
     });
   }
 }
