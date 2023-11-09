@@ -2,7 +2,7 @@
 import { SocialMediaProps } from '@ircsignpost/signpost-base/dist/src/header-banner';
 
 import facebookImage from '../public/facebook.svg';
-import messengerImage from '../public/messenger.svg';
+import messengerImage from '../public/email.svg';
 import whatsappImage from '../public/whatsapp.svg';
 
 export interface SocialMediaLink {
