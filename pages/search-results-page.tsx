@@ -83,6 +83,7 @@ export default function SearchResultsPage({
       strings={strings}
       siteUrl={siteUrl}
       footerLinks={footerLinks}
+      servicesFilter={[1]}
       signpostVersion={publicRuntimeConfig?.version}
       cookieBanner={
         <CookieBanner
